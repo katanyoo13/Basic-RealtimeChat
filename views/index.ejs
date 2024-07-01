@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Chat App</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title h3 {
+            color: #343a40;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .card {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .input-group-append .btn {
+            border-radius: 0;
+        }
+
+        .input-group input {
+            border-radius: 0;
+        }
+
+        .message-box {
+            height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #e9ecef;
+        }
+
+        .message {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+            clear: both;
+        }
+
+        .message.sent {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .message.sent .message-content {
+            background-color: #007bff;
+            color: white;
+            margin-left: auto;
+            border-top-right-radius: 0;
+            border-top-left-radius: 10px;
+        }
+
+        .message.received .message-content {
+            background-color: #f8f9fa;
+            margin-right: auto;
+            border-top-left-radius: 0;
+            border-top-right-radius: 10px;
+        }
+
+        .card-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .btn-warning, .btn-success {
+            border-radius: 0 0.25rem 0.25rem 0;
+        }
+
+        .input-group input {
+            border-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h3>Realtime Chat Room</h3>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Anonymous</div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="username" placeholder="Change your username">
+                    <div class="input-group-append">
+                        <button class="btn btn-warning" type="button" id="usernameBtn">Change</button>
+                    </div>
+                </div>
+                <div class="message-box" id="message-box">
+                    <ul class="list-group" id="message-list">
+                        <!-- Messages will be dynamically added here -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="message" placeholder="Send new message">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="button" id="messageBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/js/chatroom.js"></script>
+</body>
+</html>
